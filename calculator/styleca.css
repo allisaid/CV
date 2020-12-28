@@ -1,0 +1,66 @@
+* {
+ box-sizing: border-box;
+}
+
+.container {
+ border-radius: 20PX;
+}
+
+.box {
+ padding: 30px 0px;
+ text-align: center;
+ color: #f3f3f3;
+}
+
+.box-1, .box-2, .box-3 {
+ background: lavender;
+ border-radius: 50%;
+ color: black;
+ margin: 5PX;
+}
+
+.box-4 {
+ background: honeydew;
+ border-radius: 50%;
+ color: black;
+}
+
+.box-5, .box-6, .box-7, .box-8, .box-9, .box-10, .box-11, .box-12 {
+ background: grey;
+ border-radius: 50%;
+ margin: 5px;
+}
+
+.box-15, .box-16, .box-19 {
+ background: grey;
+ border-radius: 50%;
+ margin: 5px;
+}
+
+.box-13, .box-14, .box-18 {
+ background: grey;
+ border-radius: 50%;
+ margin: 5px;
+}
+
+.box-17, .box-18, .box-19 {
+ margin: 5px;
+}
+
+.box-17 {
+ background: grey;
+ border-bottom-left-radius: 45%;
+ border-bottom-right-radius: 45%;
+ border-top-left-radius: 45%;
+ border-top-right-radius: 45%;
+ margin: 5px;
+}
+
+.box-4, .box-8, .box-12, .box-16, .box-19 {
+ background: #ff9900;
+}
+
+.box-4:hover, .box-8:hover, .box-12:hover, .box-16:hover, .box-19:hover {
+ background: white;
+ color: black;
+}

@@ -1,0 +1,327 @@
+/* 
+===========
+Variables
+===========
+ */
+
+/* root = all html doc */
+
+:root {
+  --mainBlack: #000;
+  --mainWhite: #fff;
+  --minWhite: #f7f7f7;
+  --minBlack: #222;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.2rem;
+}
+
+/* 
+===========
+Global Styles
+===========
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Galada", cursive;
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 300;
+  font-size: 0.75;
+  line-height: 1.5;
+}
+
+/* 
+===========
+main navbar
+===========
+ */
+
+.main-navbar {
+  background: var(--minBlack);
+  padding: 0 2rem;
+}
+
+.main-navbar li {
+  list-style-type: none;
+  text-align: center;
+}
+
+.main-navbar a {
+  text-transform: capitalize;
+  display: block;
+  padding: 1rem 0;
+  color: var(--mainWhite);
+  letter-spacing: var(--mainSpacing);
+  transition: var(--mainTransition);
+  font-size: 1.2rem;
+}
+
+.main-navbar a:hover {
+  color: var(--mainBlack);
+}
+
+.main-navbar {
+  height: auto;
+  position: fixed;
+  width: 100%;
+}
+
+@media screen and (min-width: 968px) {
+  .main-navbar ul {
+    max-width: 1170px;
+    margin: 0 auto;
+    /* background: var(--minWhite); *was testing/
+  /* color: var(--mainBlack); */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 
+===========
+home
+===========
+ */
+
+.home-header {
+  min-height: 100vh;
+  background: var(--minWhite);
+  color: var(--mainBlack);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-banner p {
+  width: 80%;
+  max-width: 560px;
+  font-size: 1.4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .home-banner {
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .home-header {
+    background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)),
+      url("images/image-1.jpg") center/cover fixed no-repeat;
+  }
+}
+
+/* 
+===========
+photos
+===========
+ */
+
+.title {
+  text-align: center;
+}
+
+.photos {
+  padding: 4rem 0;
+}
+
+.photos-center {
+  width: 80vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+}
+
+.photo {
+  border: 1px solid grey;
+  margin-bottom: 3rem;
+}
+
+.photo-info {
+  padding: 1rem;
+}
+
+.photo-footer {
+  background: var(--minBlack);
+  padding: 0.5rem 1rem;
+}
+
+/* @media screen and (min-width: 768px) {
+  .photos-center {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .photos-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} */
+
+.photo {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+/*auto is for the picture 1fr for infor auto for footer*/
+
+/* doing columns without media screen
+screen size - gaps you need (1170-64)/3= 368px
+ */
+
+.photos-center {
+  display: grid;
+  grid-column-gap: 2rem;
+  /* grid-template-columns: repeat(auto-filt, minmax(368px, 1fr)); */
+  /*  thre column layout grid-template-columns: repeat(auto-fill, minmax(368px, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
+}
+
+/* 
+============
+images
+============ */
+
+.images {
+  padding: 4rem 0;
+}
+
+.images-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 2rem auto;
+  display: grid;
+  grid-row-gap: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .images-center {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .images-center {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .images-center {
+    grid-row-gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 200px);
+    /*it messed because of the column*/
+    /*200px is row height*/
+    grid-template-areas: "a a a b" "a a a c" "d d d d" "e f f f " "e g h i ";
+  }
+  /* without height the img will mess up */
+  .images img {
+    height: 100%;
+    object-fit: cover;
+    /* to fix distord images*/
+  }
+  .image-1 {
+    grid-area: a;
+  }
+  .image-2 {
+    grid-area: b;
+  }
+  .image-3 {
+    grid-area: c;
+  }
+  .image-4 {
+    grid-area: d;
+  }
+  .image-5 {
+    grid-area: e;
+  }
+  .image-6 {
+    grid-area: f;
+  }
+  .image-7 {
+    grid-area: g;
+  }
+  .image-8 {
+    grid-area: h;
+  }
+  .image-9 {
+    grid-area: i;
+  }
+}
+
+/*
+Contact
+ */
+
+.contact-section {
+  padding-top: 9rem;
+  text-align: center;
+  height: 85vh;
+  /* height: calc(90vh - 15vh); */
+}
+
+.contact {
+  margin: auto;
+  text-align: center;
+  font-size: 75px;
+}
+
+.contact-info p {
+  text-align: center;
+  font-size: 30px;
+}
+span {
+  color: var(--mainBlack);
+}
+#date {
+  color: var(--mainWhite);
+}
+
+.footer {
+  background: #222;
+  text-align: center;
+  height: 15vh;
+  padding: 1rem;
+  color: var(--minWhite);
+  font-size: 25px;
+  letter-spacing: 0.5rem;
+}
